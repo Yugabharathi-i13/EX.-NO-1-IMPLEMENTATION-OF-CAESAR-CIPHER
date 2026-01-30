@@ -28,38 +28,35 @@ int main() {
     scanf("%s", text);
     printf("Enter the key: ");
     scanf("%d", &key);
-    printf("\n\nPlain text: %s",text);
+
+    printf("\nPlain text: %s", text);
     for(i = 0; text[i] != '\0'; i++) {
         ch = text[i];
+        if(ch >= 'a' && ch <= 'z') {
+            ch = ch - 32;
+        }
         if(ch >= 'A' && ch <= 'Z') {
             ch = ((ch - 'A' + key) % 26) + 'A';
         }
-        else if(ch >= 'a' && ch <= 'z') {
-            ch = ((ch - 'a' + key) % 26) + 'a';
+        text[i] = ch;
+    }
+    printf("\nCipher Text/Encrypted Text: %s", text);
+    for(i = 0; text[i] != '\0'; i++) {
+        ch = text[i];
+
+        if(ch >= 'A' && ch <= 'Z') {
+            ch = ((ch - 'A' - key + 26) % 26) + 'A';
         }
 
         text[i] = ch;
-    }
-    printf("\nEncrypted/Cipher Text: %s",text);
-    for(i = 0; text[i] != '\0'; i++) {
-        ch = text[i];
-        if(ch >= 'A' && ch <= 'Z') {
-            ch = ((ch - 'A' - key + 26) % 26) + 'A';
-            
-        }
-        else if(ch >= 'a' && ch <= 'z') {
-            ch = ((ch - 'a' - key + 26) % 26) + 'a';
-            
-        }
-        text[i] = ch;
-        
     }
     printf("\nDecrypted Text: %s\n", text);
 }
+
 ```
 
 ## OUTPUT:
-<img width="1677" height="975" alt="Screenshot 2026-01-29 093946" src="https://github.com/user-attachments/assets/7beef1f2-bf97-4414-89a4-3510d1d06744" />
+<img width="1690" height="968" alt="image" src="https://github.com/user-attachments/assets/674ebfe5-9883-4b0e-85b0-b54e2da6bed1" />
 
 
 ## RESULT :
